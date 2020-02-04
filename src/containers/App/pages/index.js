@@ -1,17 +1,15 @@
-import React, { lazy, Suspense, useState, useEffect, memo } from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
-import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
-import NotFoundPage from "containers/App/pages/NotFoundPage";
+import { Switch, Route, Redirect } from "react-router-dom";
 import ScrollToTop from "helpers/scrollToTop";
-
 import { Layout } from "antd";
+import NotFoundPage from "containers/App/pages/NotFoundPage";
 import PageHeader from "components/PageHeader";
+import Headlines from "containers/Headlines";
+import Everything from "containers/Everything";
+import Sources from "containers/Sources";
 
-const Headlines = lazy(() => import("containers/Headlines"));
-const Everything = lazy(() => import("containers/Everything"));
-const Sources = lazy(() => import("containers/Sources"));
-
-const IndexPage = ({ match, location, history }) => {
+const IndexPage = () => {
   return (
     <ScrollToTop>
       <Layout style={{ minHeight: "100vh" }}>

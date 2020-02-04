@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { withRouter, Link, useRouteMatch } from "react-router-dom";
+import React from "react";
+import { withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
 import { Helmet } from "react-helmet";
 
@@ -12,7 +11,7 @@ const menu = [
   { to: "/sources", text: "Sources" }
 ];
 
-const PageHeader = ({ match, location, history }) => {
+const PageHeader = ({ location }) => {
   const metaTitle =
     menu.find(item => item.to === location.pathname)?.text || null;
 

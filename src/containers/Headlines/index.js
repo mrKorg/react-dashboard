@@ -1,11 +1,10 @@
 import React, { useEffect, useReducer } from "react";
 import produce from "immer";
-import { Col, Row } from "antd";
+import { useAxios } from "hooks";
+import { PAGE_SIZE } from "helpers/constants";
+import { Col, Row, Alert } from "antd";
 import HeadlinesList from "./components/HeadlinesList";
 import HeadlinesFilter from "./components/HeadlinesFilter";
-import { useAxios } from "hooks";
-
-const PAGE_SIZE = 10;
 
 const paramsReducer = (state, action) =>
   produce(state, draft => {
@@ -48,7 +47,7 @@ const Headlines = () => {
     q: null
   });
   const [loading, response, error] = useAxios("/top-headlines", { params });
-  const { articles, totalResults } = response || {};
+  const { articles = [], totalResults = 0 } = response || {};
 
   const onTableChange = (pagination, filters, sorter) =>
     paramsDispatch({ type: "TABLE", pagination, filters, sorter });
@@ -58,9 +57,11 @@ const Headlines = () => {
     paramsDispatch({ type: "FILTER", category: data });
   const onSearch = value => paramsDispatch({ type: "SEARCH", value });
 
-  return (
+  return error ? (
+    <Alert type="error" message="Sorry, something went wrong there." />
+  ) : (
     <Row type="flex" gutter={24}>
-      <Col md={4}>
+      <Col xs={24} lg={6}>
         <HeadlinesFilter
           values={params}
           onSearch={onSearch}
@@ -68,7 +69,7 @@ const Headlines = () => {
           onChangeCategory={onChangeCategory}
         />
       </Col>
-      <Col md={20}>
+      <Col xs={24} lg={18}>
         <HeadlinesList
           loading={loading}
           data={articles}

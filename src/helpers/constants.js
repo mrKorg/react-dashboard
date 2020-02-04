@@ -3,6 +3,8 @@
 export const API_ROOT = "https://newsapi.org/v2";
 export const IS_DEVELOPMENT = process.env.NODE_ENV === "development";
 
+export const PAGE_SIZE = 10;
+
 export const COUNTRIES = [
   "ae",
   "ar",
@@ -69,3 +71,24 @@ export const CATEGORIES = [
   "sports",
   "technology"
 ];
+
+export const LANGUAGES = [
+  "ar",
+  "de",
+  "en",
+  "es",
+  "fr",
+  "he",
+  "it",
+  "nl",
+  "no",
+  "pt",
+  "ru",
+  "se",
+  "ud",
+  "zh"
+];
+
+export const DATE_FORMAT = 'DD MMM YYYY';
+export const TIME_FORMAT = 'hh:mm a';
+export const DATETIME_FORMAT = 'DD/MM/YYYY hh:mm a';
