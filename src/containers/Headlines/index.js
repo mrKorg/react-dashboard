@@ -60,24 +60,20 @@ const Headlines = () => {
   return error ? (
     <Alert type="error" message="Sorry, something went wrong there." />
   ) : (
-    <Row type="flex" gutter={24}>
-      <Col xs={24} lg={6}>
-        <HeadlinesFilter
-          values={params}
-          onSearch={onSearch}
-          onChangeCountry={onChangeCountry}
-          onChangeCategory={onChangeCategory}
-        />
-      </Col>
-      <Col xs={24} lg={18}>
-        <HeadlinesList
-          loading={loading}
-          data={articles}
-          onTableChange={onTableChange}
-          params={{ ...params, totalResults }}
-        />
-      </Col>
-    </Row>
+    <>
+      <HeadlinesFilter
+        values={params}
+        onSearch={onSearch}
+        onChangeCountry={onChangeCountry}
+        onChangeCategory={onChangeCategory}
+      />
+      <HeadlinesList
+        loading={loading}
+        data={articles}
+        onTableChange={onTableChange}
+        params={{ ...params, totalResults }}
+      />
+    </>
   );
 };
 

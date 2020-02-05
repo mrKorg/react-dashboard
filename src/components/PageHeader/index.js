@@ -44,4 +44,5 @@ export default withRouter(PageHeader);
 const HeaderContainer = styled.div`
   padding: 2rem 2rem 0;
   background: white;
+  text-align: center;
 `;
