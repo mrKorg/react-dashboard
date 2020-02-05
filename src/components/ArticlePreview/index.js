@@ -1,11 +1,12 @@
 import React, { memo } from "react";
 import PropTypes from "prop-types";
-import { Title, Text, Paragraph, Link } from './style';
-import { Button, Card, Icon } from 'antd';
+import { Card, Icon, Empty } from 'antd';
+import { Link, GridContainer } from 'components/StyledComponents';
+import TableTimestamp from "components/TableTimestamp";
+import { ARTICLE_MODES } from 'helpers/constants';
+import { Title, Text, Paragraph } from './style';
 
-const MODES = { TITLE_ONLY: 'TITLE_ONLY', IN_TABLE: 'IN_TABLE', CARD: 'CARD', ROW: 'ROW' };
-
-const ArticlePreview = ({ data, mode = MODES.TITLE_ONLY }) => {
+const ArticlePreview = ({ data, mode = ARTICLE_MODES.TITLE_ONLY }) => {
   const { source, author, title, description, url, urlToImage, publishedAt, content } = data;
 
   const renderTitle = () => (
@@ -14,6 +15,13 @@ const ArticlePreview = ({ data, mode = MODES.TITLE_ONLY }) => {
     </Title>
   );
 
+  const renderDate = () => publishedAt && (
+    <Paragraph>
+      <TableTimestamp timestamp={publishedAt} />
+    </Paragraph>
+  );
+
+  console.log(author?.indexOf('http'));
   const renderAuthor = () => author && (
     <Paragraph>
       <Text>
@@ -22,7 +30,13 @@ const ArticlePreview = ({ data, mode = MODES.TITLE_ONLY }) => {
       <Text strong>
         {author?.name && author.name}
         {author?.title && author.title}
-        {typeof author === "string" && author}
+        {typeof author === "string" ? (
+          author.indexOf('http') === 0 ? (
+            <Link href={author} target="_blank">
+              Source
+            </Link>
+          ) : author
+        ) : null}
       </Text>
     </Paragraph>
   );
@@ -60,15 +74,45 @@ const ArticlePreview = ({ data, mode = MODES.TITLE_ONLY }) => {
 
   const renderView = () => {
     switch (mode) {
-      case MODES.TITLE_ONLY:
+      case ARTICLE_MODES.TITLE_ONLY:
         return renderTitle();
-      case MODES.IN_TABLE:
+      case ARTICLE_MODES.IN_TABLE:
         return (
           <div style={{ display: 'inline-block' }}>
             {renderTitle()}
             {renderAuthor()}
             {renderSource()}
           </div>
+        );
+      case ARTICLE_MODES.CARD:
+        return (
+          <Card
+            style={{ height: '100%' }}
+            cover={urlToImage ? <img alt="" src={urlToImage} /> : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />}
+          >
+            {renderDate()}
+            {renderTitle()}
+            {renderAuthor()}
+            {renderSource()}
+            {!urlToImage && renderDescription()}
+          </Card>
+        );
+      case ARTICLE_MODES.ROW:
+        return (
+          <Card>
+            <GridContainer gap="24px" columns="minmax(30px, 150px) auto">
+              <div>
+                {urlToImage ? <img alt="" src={urlToImage} /> : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />}
+              </div>
+              <div>
+                {renderDate()}
+                {renderTitle()}
+                {renderAuthor()}
+                {renderSource()}
+                {renderDescription()}
+              </div>
+            </GridContainer>
+          </Card>
         );
       default:
         return null;
@@ -79,7 +123,7 @@ const ArticlePreview = ({ data, mode = MODES.TITLE_ONLY }) => {
 };
 
 ArticlePreview.propTypes = {
-  mode: PropTypes.oneOf(Object.keys(MODES).map(k => MODES[k])),
+  mode: PropTypes.oneOf(Object.keys(ARTICLE_MODES).map(k => ARTICLE_MODES[k])),
   data: PropTypes.shape({
     source: PropTypes.shape({
       id: PropTypes.string,

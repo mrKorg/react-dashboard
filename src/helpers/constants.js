@@ -92,3 +92,11 @@ export const LANGUAGES = [
 export const DATE_FORMAT = "DD MMM YYYY";
 export const TIME_FORMAT = "hh:mm a";
 export const DATETIME_FORMAT = "DD/MM/YYYY hh:mm a";
+
+export const GRID_MODES = {
+  TABLE: 'TABLE',
+  ROW: 'ROW',
+  CARDS: 'CARDS'
+};
+
+export const ARTICLE_MODES = { TITLE_ONLY: 'TITLE_ONLY', IN_TABLE: 'IN_TABLE', CARD: 'CARD', ROW: 'ROW' };

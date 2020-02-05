@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { Input, Select, Form, Col, Row } from "antd";
+import { Input, Select, Col, Row } from "antd";
 import { COUNTRIES, CATEGORIES } from "helpers/constants";
+import FormItem from "components/Form/Item";
 
 const HeadlinesFilter = ({
   values,
@@ -13,21 +14,21 @@ const HeadlinesFilter = ({
   }, []);
 
   return (
-    <div style={{ maxWidth: 600, margin: "0 auto" }}>
-      <Row type="flex" gutter={24}>
+    <div style={{ maxWidth: 600 }}>
+      <Row type="flex" gutter={12}>
         {onSearch && (
           <Col xs={24} md={12}>
-            <Form.Item label="Search">
+            <FormItem label="Search">
               <Input
                 value={values?.q || null}
                 onChange={e => onSearch(e.target.value)}
               />
-            </Form.Item>
+            </FormItem>
           </Col>
         )}
         {onChangeCountry && (
           <Col xs={24} md={6}>
-            <Form.Item label="Country">
+            <FormItem label="Country">
               <Select
                 value={values?.country || null}
                 onChange={onChangeCountry}
@@ -39,12 +40,12 @@ const HeadlinesFilter = ({
                   </Select.Option>
                 ))}
               </Select>
-            </Form.Item>
+            </FormItem>
           </Col>
         )}
         {onChangeCategory && (
           <Col xs={24} md={6}>
-            <Form.Item label="Category">
+            <FormItem label="Category">
               <Select
                 value={values?.category || null}
                 onChange={onChangeCategory}
@@ -56,7 +57,7 @@ const HeadlinesFilter = ({
                   </Select.Option>
                 ))}
               </Select>
-            </Form.Item>
+            </FormItem>
           </Col>
         )}
       </Row>

@@ -21,18 +21,3 @@ export const Paragraph = styled(Typography.Paragraph)`
    line-height: normal;
   }
 `;
-
-export const Link = styled.a`
-  &&& {
-    color: #1890ff;
-    transition: opacity .3s ease;
-
-    .ant-typography {
-      color: inherit;
-    }
-
-    &:hover {
-      opacity: .5;
-    }
-  }
-`;
