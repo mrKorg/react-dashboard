@@ -26,12 +26,16 @@ const Review = () => {
         {values.language || "N/A"}
       </FormItem>
       <FormItem label="Date" {...formItemLayout} style={{ margin: 0 }}>
-        {(values.from || values.to) ? (
+        {values.from || values.to ? (
           <>
-            From {values.from ? <TableTimestamp timestamp={values.from}/> : "N/A"}<br />
-            to {values.to ? <TableTimestamp timestamp={values.to}/> : "N/A"}
+            From{" "}
+            {values.from ? <TableTimestamp timestamp={values.from} /> : "N/A"}
+            <br />
+            to {values.to ? <TableTimestamp timestamp={values.to} /> : "N/A"}
           </>
-        ) : 'N/A'}
+        ) : (
+          "N/A"
+        )}
       </FormItem>
     </div>
   );

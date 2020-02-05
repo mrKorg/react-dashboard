@@ -89,6 +89,6 @@ export const LANGUAGES = [
   "zh"
 ];
 
-export const DATE_FORMAT = 'DD MMM YYYY';
-export const TIME_FORMAT = 'hh:mm a';
-export const DATETIME_FORMAT = 'DD/MM/YYYY hh:mm a';
+export const DATE_FORMAT = "DD MMM YYYY";
+export const TIME_FORMAT = "hh:mm a";
+export const DATETIME_FORMAT = "DD/MM/YYYY hh:mm a";

@@ -47,7 +47,7 @@ const Form = ({ onSubmit }) => {
   const [currentStep, setCurrentStep] = useState(stepQuery || 1);
 
   useEffect(() => {
-    console.log('Everything Form mount');
+    console.log("Everything Form mount");
     if (stepQuery > 1) {
       setStepQuery(1);
       setCurrentStep(1);
@@ -109,79 +109,82 @@ const Form = ({ onSubmit }) => {
 
   return (
     <FormContext.Provider value={{ test: "test" }}>
-        <Formik
-          onSubmit={onSubmit}
-          validationSchema={getValidationSchema()}
-          initialValues={initialValues}
-          enableReinitialize
-        >
-          {({
-            values,
-            handleSubmit,
-            isValid,
-            dirty,
-            isSubmitting,
-            validateForm,
-            setFieldTouched
-          }) => (
-            <>
-              <Steps
-                current={currentStep - 1}
-                progressDot={customDot}
-                style={{ maxWidth: 800, margin: "1rem auto 2rem" }}
-              >
-                {STEPS.map((step, index) => (
-                  <Steps.Step key={step.title} title={step.title} />
-                ))}
-              </Steps>
-              <form onSubmit={handleSubmit} style={{ maxWidth: 600, margin: "0 auto" }}>
-                {currentStep === 1 && <FormSteps.Keywords />}
-                {currentStep === 2 && <FormSteps.Language />}
-                {currentStep === 3 && <FormSteps.Date />}
-                {currentStep === 4 && <FormSteps.Review />}
-                <Row type="flex" gutter={12} justify="end">
-                  {!isFirstPage && (
-                    <Col>
-                      <Button type="default" onClick={goPrev}>
-                        Back
-                      </Button>
-                    </Col>
-                  )}
-                  {!isLastPage && (
-                    <Col>
-                      <Button
-                        type={isValid ? 'primary' : 'danger'}
-                        onClick={() => {
-                          validateForm(values).then(errors => {
-                            showErrors(errors, setFieldTouched, goNext);
-                          });
-                        }}
-                      >
-                        Next
-                      </Button>
-                    </Col>
-                  )}
-                  {isLastPage && (
-                    <Col>
-                      <Button
-                        type={isValid ? 'primary' : 'danger'}
-                        loading={dirty && isSubmitting}
-                        onClick={() => {
-                          validateForm(values).then(errors => {
-                            showErrors(errors, setFieldTouched, handleSubmit);
-                          });
-                        }}
-                      >
-                        Show Results
-                      </Button>
-                    </Col>
-                  )}
-                </Row>
-                <FormDebug />
-              </form>
-            </>
-          )}
-        </Formik>
+      <Formik
+        onSubmit={onSubmit}
+        validationSchema={getValidationSchema()}
+        initialValues={initialValues}
+        enableReinitialize
+      >
+        {({
+          values,
+          handleSubmit,
+          isValid,
+          dirty,
+          isSubmitting,
+          validateForm,
+          setFieldTouched
+        }) => (
+          <>
+            <Steps
+              current={currentStep - 1}
+              progressDot={customDot}
+              style={{ maxWidth: 800, margin: "1rem auto 2rem" }}
+            >
+              {STEPS.map((step, index) => (
+                <Steps.Step key={step.title} title={step.title} />
+              ))}
+            </Steps>
+            <form
+              onSubmit={handleSubmit}
+              style={{ maxWidth: 600, margin: "0 auto" }}
+            >
+              {currentStep === 1 && <FormSteps.Keywords />}
+              {currentStep === 2 && <FormSteps.Language />}
+              {currentStep === 3 && <FormSteps.Date />}
+              {currentStep === 4 && <FormSteps.Review />}
+              <Row type="flex" gutter={12} justify="end">
+                {!isFirstPage && (
+                  <Col>
+                    <Button type="default" onClick={goPrev}>
+                      Back
+                    </Button>
+                  </Col>
+                )}
+                {!isLastPage && (
+                  <Col>
+                    <Button
+                      type={isValid ? "primary" : "danger"}
+                      onClick={() => {
+                        validateForm(values).then(errors => {
+                          showErrors(errors, setFieldTouched, goNext);
+                        });
+                      }}
+                    >
+                      Next
+                    </Button>
+                  </Col>
+                )}
+                {isLastPage && (
+                  <Col>
+                    <Button
+                      type={isValid ? "primary" : "danger"}
+                      loading={dirty && isSubmitting}
+                      onClick={() => {
+                        validateForm(values).then(errors => {
+                          showErrors(errors, setFieldTouched, handleSubmit);
+                        });
+                      }}
+                    >
+                      Show Results
+                    </Button>
+                  </Col>
+                )}
+              </Row>
+              <FormDebug />
+            </form>
+          </>
+        )}
+      </Formik>
     </FormContext.Provider>
   );
 };

@@ -2,6 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useField } from "formik";
 import { Form } from "antd";
+import styled from "styled-components";
+
+const StyledFormItem = styled(Form.Item)`
+  .ant-form-item-children {
+    display: block;
+  }
+`;
 
 const FormikFormItem = ({
   name,
@@ -15,7 +22,7 @@ const FormikFormItem = ({
   const isValid = meta.touched && !meta.error;
 
   return (
-    <Form.Item
+    <StyledFormItem
       validateStatus={
         meta.error && meta.touched
           ? "error"
@@ -28,7 +35,7 @@ const FormikFormItem = ({
       {...props}
     >
       {children}
-    </Form.Item>
+    </StyledFormItem>
   );
 };
 
@@ -44,7 +51,7 @@ const FormItem = ({ showValidateSuccess, children, name, ...props }) => {
       </FormikFormItem>
     );
   }
-  return <Form.Item {...props}>{children}</Form.Item>;
+  return <StyledFormItem {...props}>{children}</StyledFormItem>;
 };
 
 FormikFormItem.propTypes = {

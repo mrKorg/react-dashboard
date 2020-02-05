@@ -62,7 +62,7 @@ const Everything = () => {
   });
 
   const onSubmitForm = async filter => {
-    paramsDispatch({type: "FILTER", filter});
+    paramsDispatch({ type: "FILTER", filter });
     setResultsShow(true);
   };
 
@@ -72,14 +72,16 @@ const Everything = () => {
   return (
     <>
       <Form onSubmit={onSubmitForm} />
-      {isResultsShow && <ResultsModal
-        isOpen={isResultsShow}
-        params={params}
-        onClose={() => {
-          setResultsShow(false);
-        }}
-        onTableChange={onTableChange}
-      />}
+      {isResultsShow && (
+        <ResultsModal
+          isOpen={isResultsShow}
+          params={params}
+          onClose={() => {
+            setResultsShow(false);
+          }}
+          onTableChange={onTableChange}
+        />
+      )}
     </>
   );
 };

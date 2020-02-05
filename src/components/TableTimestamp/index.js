@@ -9,7 +9,7 @@ const TableTimestamp = memo(({ timestamp = null }) => {
     const m = moment(timestamp);
     return (
       <>
-        <Typography.Text strong>{m.format(DATE_FORMAT)}</Typography.Text>{' '}
+        <Typography.Text strong>{m.format(DATE_FORMAT)}</Typography.Text>{" "}
         <Typography.Text disabled>{m.format(TIME_FORMAT)}</Typography.Text>
       </>
     );

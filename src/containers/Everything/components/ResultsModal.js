@@ -17,7 +17,7 @@ const ResultsModal = ({ isOpen, onClose, params, onTableChange }) => {
           <>{record.description}</>
         </>
       )
-    },
+    }
   ];
 
   const pagination = {
@@ -57,7 +57,7 @@ ResultsModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   params: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
-  onTableChange: PropTypes.func.isRequired,
+  onTableChange: PropTypes.func.isRequired
 };
 
 export default ResultsModal;
