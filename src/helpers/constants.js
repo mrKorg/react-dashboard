@@ -1,5 +1,3 @@
-// GLOBAL constnats
-
 export const API_ROOT = "https://newsapi.org/v2";
 export const IS_DEVELOPMENT = process.env.NODE_ENV === "development";
 

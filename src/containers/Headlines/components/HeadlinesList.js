@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { Col, Row, Table, Pagination, Card, Spin } from "antd";
+import { Col, Row, Table, Pagination, Spin } from "antd";
 import ArticlePreview from "components/ArticlePreview";
 import TableTimestamp from "components/TableTimestamp";
 import { GRID_MODES, ARTICLE_MODES } from "helpers/constants";

@@ -4,6 +4,7 @@ import { PAGE_SIZE } from "helpers/constants";
 import Form from "./components/Form/index";
 import ResultsModal from "./components/ResultsModal";
 
+// TODO: move API call from ResultsModal to Everything
 const paramsReducer = (state, action) =>
   produce(state, draft => {
     switch (action?.type) {
