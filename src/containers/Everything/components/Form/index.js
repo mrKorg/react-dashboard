@@ -135,8 +135,15 @@ const Form = ({ onSubmit }) => {
               ))}
             </Steps>
             <form
-              onSubmit={handleSubmit}
               style={{ maxWidth: 600, margin: "0 auto" }}
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (isLastPage) {
+                  validateForm(values).then(errors => {
+                    showErrors(errors, setFieldTouched, handleSubmit);
+                  })
+                }
+              }}
             >
               {currentStep === 1 && <FormSteps.Keywords />}
               {currentStep === 2 && <FormSteps.Language />}

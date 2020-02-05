@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Alert, Modal, Table } from "antd";
 import { useAxios } from "hooks";
+import ArticlePreview from "components/ArticlePreview";
+import TableTimestamp from "../../../components/TableTimestamp";
 
 const ResultsModal = ({ isOpen, onClose, params, onTableChange }) => {
   const [loading, response, error] = useAxios("/top-headlines", { params });
@@ -9,14 +11,15 @@ const ResultsModal = ({ isOpen, onClose, params, onTableChange }) => {
 
   const columns = [
     {
-      title: "Title",
-      key: "title",
-      render: (_, record) => (
-        <>
-          <>{record.title}</>
-          <>{record.description}</>
-        </>
-      )
+      title: "Article",
+      key: "article",
+      render: (_, record) => <ArticlePreview data={record} mode="IN_TABLE" />
+    },
+    {
+      title: "Date",
+      key: "publishedAt",
+      width: 200,
+      render: (_, record) => <TableTimestamp  timestamp={record.publishedAt}/>
     }
   ];
 

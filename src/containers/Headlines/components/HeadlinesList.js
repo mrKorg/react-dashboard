@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Table } from "antd";
+import ArticlePreview from "components/ArticlePreview";
+import TableTimestamp from "components/TableTimestamp";
 
 const HeadlinesList = ({ data, loading, onTableChange, params }) => {
   useEffect(() => {
@@ -9,26 +11,15 @@ const HeadlinesList = ({ data, loading, onTableChange, params }) => {
 
   const columns = [
     {
-      title: "Title",
-      key: "title",
-      render: (_, record) => (
-        <>
-          <>{record.title}</>
-          <>{record.description}</>
-        </>
-      )
-    },
-    {
-      title: "Author",
-      key: "author",
-      width: 200,
-      render: (_, record) => <>{record.author}</>
+      title: "Article",
+      key: "article",
+      render: (_, record) => <ArticlePreview data={record} mode="IN_TABLE" />
     },
     {
       title: "Date",
       key: "publishedAt",
       width: 200,
-      render: (_, record) => <>{record.publishedAt}</>
+      render: (_, record) => <TableTimestamp  timestamp={record.publishedAt}/>
     }
   ];
 
