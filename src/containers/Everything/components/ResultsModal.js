@@ -19,7 +19,7 @@ const ResultsModal = ({ isOpen, onClose, params, onTableChange }) => {
       title: "Date",
       key: "publishedAt",
       width: 200,
-      render: (_, record) => <TableTimestamp  timestamp={record.publishedAt}/>
+      render: (_, record) => <TableTimestamp timestamp={record.publishedAt} />
     }
   ];
 

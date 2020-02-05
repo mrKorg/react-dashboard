@@ -39,8 +39,8 @@ const InTitleDescription = props => {
         <List.Item>
           <Typography.Text>
             Alternatively you can use the AND / OR / NOT keywords, and
-            optionally group these with parenthesis.
-            Eg: crypto AND (ethereum OR litecoin) NOT bitcoin.
+            optionally group these with parenthesis. Eg: crypto AND (ethereum OR
+            litecoin) NOT bitcoin.
           </Typography.Text>
         </List.Item>
       </List>
@@ -68,7 +68,9 @@ const Keywords = () => {
               <Col>
                 <Checkbox
                   checked={formik.values.inTitle}
-                  onChange={e => formik.setFieldValue("inTitle", e.target.checked)}
+                  onChange={e =>
+                    formik.setFieldValue("inTitle", e.target.checked)
+                  }
                   onBlur={() => formik.setFieldTouched("inTitle")}
                 >
                   Search in the article title only
@@ -87,9 +89,7 @@ const Keywords = () => {
         <Col xs={24} md={12}>
           <FormItem>
             <Row type="flex" gutter={8} align="middle">
-              <Col>
-                Advanced Search
-              </Col>
+              <Col>Advanced Search</Col>
               <Col>
                 <Switch
                   checked={isAdvancedSearchVisible}

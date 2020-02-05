@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Col, Row, Table, Pagination, Card, Spin } from "antd";
 import ArticlePreview from "components/ArticlePreview";
 import TableTimestamp from "components/TableTimestamp";
-import { GRID_MODES, ARTICLE_MODES } from 'helpers/constants';
+import { GRID_MODES, ARTICLE_MODES } from "helpers/constants";
 
 const HeadlinesList = ({ data, loading, onChange, params, mode }) => {
   useEffect(() => {
@@ -14,13 +14,15 @@ const HeadlinesList = ({ data, loading, onChange, params, mode }) => {
     {
       title: "Article",
       key: "article",
-      render: (_, record) => <ArticlePreview data={record} mode={ARTICLE_MODES.IN_TABLE} />
+      render: (_, record) => (
+        <ArticlePreview data={record} mode={ARTICLE_MODES.IN_TABLE} />
+      )
     },
     {
       title: "Date",
       key: "publishedAt",
       width: 200,
-      render: (_, record) => <TableTimestamp  timestamp={record.publishedAt}/>
+      render: (_, record) => <TableTimestamp timestamp={record.publishedAt} />
     }
   ];
 
@@ -38,7 +40,9 @@ const HeadlinesList = ({ data, loading, onChange, params, mode }) => {
       <Pagination
         {...pagination}
         onChange={(page, pageSize) => onChange({ current: page, pageSize })}
-        onShowSizeChange={(page, pageSize) => onChange({ current: page, pageSize })}
+        onShowSizeChange={(page, pageSize) =>
+          onChange({ current: page, pageSize })
+        }
       />
     </div>
   );

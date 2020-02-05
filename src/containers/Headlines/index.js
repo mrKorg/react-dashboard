@@ -5,7 +5,7 @@ import { PAGE_SIZE } from "helpers/constants";
 import { Alert, Row, Col, Button, Tooltip } from "antd";
 import HeadlinesList from "./components/HeadlinesList";
 import HeadlinesFilter from "./components/HeadlinesFilter";
-import { GRID_MODES } from 'helpers/constants';
+import { GRID_MODES } from "helpers/constants";
 
 const defaultParams = {
   pageSize: PAGE_SIZE,
@@ -70,22 +70,38 @@ const Headlines = () => {
     <Row type="flex" gutter={12} style={{ marginBottom: 28 }}>
       <Col>
         <Tooltip title="Reset filter">
-          <Button type="danger" icon="reload" onClick={() => paramsDispatch({ type: "RESET" })} />
+          <Button
+            type="danger"
+            icon="reload"
+            onClick={() => paramsDispatch({ type: "RESET" })}
+          />
         </Tooltip>
       </Col>
       <Col>
         <Tooltip title="Table view">
-          <Button type={view === GRID_MODES.TABLE ? 'primary' : null} icon="table" onClick={() => setView(GRID_MODES.TABLE)} />
+          <Button
+            type={view === GRID_MODES.TABLE ? "primary" : null}
+            icon="table"
+            onClick={() => setView(GRID_MODES.TABLE)}
+          />
         </Tooltip>
       </Col>
       <Col>
         <Tooltip title="Row view">
-          <Button type={view === GRID_MODES.ROW ? 'primary' : null} icon="unordered-list" onClick={() => setView(GRID_MODES.ROW)} />
+          <Button
+            type={view === GRID_MODES.ROW ? "primary" : null}
+            icon="unordered-list"
+            onClick={() => setView(GRID_MODES.ROW)}
+          />
         </Tooltip>
       </Col>
       <Col>
         <Tooltip title="Cards view">
-          <Button type={view === GRID_MODES.CARDS ? 'primary' : null} icon="pic-left" onClick={() => setView(GRID_MODES.CARDS)} />
+          <Button
+            type={view === GRID_MODES.CARDS ? "primary" : null}
+            icon="pic-left"
+            onClick={() => setView(GRID_MODES.CARDS)}
+          />
         </Tooltip>
       </Col>
     </Row>
@@ -104,9 +120,7 @@ const Headlines = () => {
             onChangeCategory={onChangeCategory}
           />
         </Col>
-        <Col>
-          {renderActions()}
-        </Col>
+        <Col>{renderActions()}</Col>
       </Row>
       <HeadlinesList
         loading={loading}

@@ -136,12 +136,12 @@ const Form = ({ onSubmit }) => {
             </Steps>
             <form
               style={{ maxWidth: 600, margin: "0 auto" }}
-              onSubmit={(e) => {
+              onSubmit={e => {
                 e.preventDefault();
                 if (isLastPage) {
                   validateForm(values).then(errors => {
                     showErrors(errors, setFieldTouched, handleSubmit);
-                  })
+                  });
                 }
               }}
             >
