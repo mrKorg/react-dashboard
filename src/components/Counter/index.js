@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
@@ -60,4 +60,4 @@ const Title = styled(Typography.Paragraph)`
   }
 `;
 
-export default Counter;
+export default memo(Counter);

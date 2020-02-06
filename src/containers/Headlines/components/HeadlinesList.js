@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Col, Row, Table, Pagination, Spin } from "antd";
 import ArticlePreview from "components/ArticlePreview";
@@ -6,10 +6,6 @@ import TableTimestamp from "components/TableTimestamp";
 import { GRID_MODES, ARTICLE_MODES } from "helpers/constants";
 
 const HeadlinesList = ({ data, loading, onChange, params, mode }) => {
-  useEffect(() => {
-    console.log("HeadlinesList mount");
-  }, []);
-
   const columns = [
     {
       title: "Article",

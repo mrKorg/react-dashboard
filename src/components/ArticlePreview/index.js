@@ -14,8 +14,7 @@ const ArticlePreview = ({ data, mode = ARTICLE_MODES.TITLE_ONLY }) => {
     description,
     url,
     urlToImage,
-    publishedAt,
-    content
+    publishedAt
   } = data;
 
   const renderTitle = () => <Title level={2}>{title}</Title>;

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 import produce from "immer";
 import { useAxios } from "hooks";
 import { PAGE_SIZE } from "helpers/constants";
@@ -49,10 +49,6 @@ const paramsReducer = (state, action) =>
   });
 
 const Headlines = () => {
-  useEffect(() => {
-    console.log("Headlines mount");
-  }, []);
-
   const [view, setView] = useState(GRID_MODES.TABLE);
   const [params, paramsDispatch] = useReducer(paramsReducer, defaultParams);
   const [loading, response, error] = useAxios("/top-headlines", { params });

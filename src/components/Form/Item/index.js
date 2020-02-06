@@ -20,6 +20,7 @@ const FormikFormItem = ({
   const [field, meta] = useField(name);
   const hasError = meta.error !== undefined;
   const isValid = meta.touched && !meta.error;
+  console.log(field);
 
   return (
     <StyledFormItem

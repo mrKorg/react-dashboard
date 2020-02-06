@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Input, Select, Col, Row } from "antd";
 import { COUNTRIES, CATEGORIES } from "helpers/constants";
 import FormItem from "components/Form/Item";
@@ -9,10 +9,6 @@ const HeadlinesFilter = ({
   onChangeCategory,
   onSearch
 }) => {
-  useEffect(() => {
-    console.log("HeadlinesList mount");
-  }, []);
-
   return (
     <div style={{ maxWidth: 600 }}>
       <Row type="flex" gutter={12}>

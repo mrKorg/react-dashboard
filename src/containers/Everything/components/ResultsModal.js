@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Alert, Modal, Table } from "antd";
 import { useAxios } from "hooks";
 import ArticlePreview from "components/ArticlePreview";
-import TableTimestamp from "../../../components/TableTimestamp";
+import TableTimestamp from "components/TableTimestamp";
 
 const ResultsModal = ({ isOpen, onClose, params, onTableChange }) => {
   const [loading, response, error] = useAxios("/top-headlines", { params });

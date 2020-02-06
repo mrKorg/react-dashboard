@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 import produce from "immer";
 import { PAGE_SIZE } from "helpers/constants";
 import Form from "./components/Form/index";
@@ -46,10 +46,6 @@ const paramsReducer = (state, action) =>
   });
 
 const Everything = () => {
-  useEffect(() => {
-    console.log("Everything mount");
-  }, []);
-
   const [isResultsShow, setResultsShow] = useState(false);
   const [params, paramsDispatch] = useReducer(paramsReducer, {
     pageSize: PAGE_SIZE,

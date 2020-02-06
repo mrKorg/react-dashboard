@@ -47,7 +47,6 @@ const Form = ({ onSubmit }) => {
   const [currentStep, setCurrentStep] = useState(stepQuery || 1);
 
   useEffect(() => {
-    console.log("Everything Form mount");
     if (stepQuery > 1) {
       setStepQuery(1);
       setCurrentStep(1);

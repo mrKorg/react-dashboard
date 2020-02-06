@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useAxios } from "hooks";
 import Graph from "containers/Sources/components/Graph";
-import { Col, Row, Card } from "antd";
+import { Col, Row, Card, Spin, Alert } from "antd";
 
 const GRAPHS = [
   {
@@ -45,16 +45,20 @@ const GraphPage = () => {
     return data;
   }, [sources]);
 
-  return (
-    <Row type="flex" gutter={[24, 24]}>
-      {GRAPHS.map(entity => (
-        <Col xs={24} lg={12} key={entity.key}>
-          <Card title={entity.title}>
-            <Graph data={preparedData[entity.key]} mode={entity.mode} />
-          </Card>
-        </Col>
-      ))}
-    </Row>
+  return error ? (
+    <Alert type="error" message="Sorry, something went wrong there." />
+  ) : (
+    <Spin spinning={loading}>
+      <Row type="flex" gutter={[24, 24]}>
+        {GRAPHS.map(entity => (
+          <Col xs={24} lg={12} key={entity.key}>
+            <Card title={entity.title}>
+              <Graph data={preparedData[entity.key]} mode={entity.mode} />
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Spin>
   );
 };
 
