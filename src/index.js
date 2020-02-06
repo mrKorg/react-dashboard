@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 import App from "containers/App";
 
 let render = Component => {
   ReactDOM.render(
-    <BrowserRouter basename="/">
+    <HashRouter basename="/">
       <Route path="/" component={Component} />
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById("root") || document.createElement("div")
   );
 };
