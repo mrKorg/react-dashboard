@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAEA,IACE,cAAe,CACf,WAAY,CACZ,aACF","file":"main.78879b81.chunk.css","sourcesContent":["@import \"~antd/dist/antd.css\";\n\nimg {\n  max-width: 100%;\n  height: auto;\n  display: block;\n}\n"]}
