@@ -1,8 +1,7 @@
 import axios from "axios";
 
-import { API_ROOT } from "helpers/constants";
-
-const token = "17403d47899e4f3aad283aee38b5ffa9";
+const TOKEN = process.env.REACT_APP_TOKEN;
+const API_ROOT = process.env.REACT_APP_API_ROOT;
 
 const source = axios.CancelToken.source();
 const instance = axios.create({
@@ -20,8 +19,8 @@ instance.interceptors.request.use(
       !config.external &&
       !config.headers.Authorization
     ) {
-      if (token) {
-        config.headers.Authorization = token;
+      if (TOKEN) {
+        config.headers.Authorization = TOKEN;
       }
     }
     return config;

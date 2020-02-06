@@ -10,9 +10,8 @@ import Everything from "containers/Everything";
 import Sources from "containers/Sources";
 
 const IndexPage = ({ match, location }) => {
-  console.log(match, location);
   const path = match.path?.length > 1 ? match.path : '';
-  console.log(path);
+  console.log(match, location, `path: ${path}`);
   return (
     <ScrollToTop>
       <Layout style={{ minHeight: "100vh" }}>

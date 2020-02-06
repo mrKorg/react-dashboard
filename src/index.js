@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, HashRouter } from "react-router-dom";
+import { Route, BrowserRouter } from "react-router-dom";
 import App from "containers/App";
 
 let render = Component => {
   ReactDOM.render(
-    <HashRouter basename="/">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Route path="/" component={Component} />
-    </HashRouter>,
+    </BrowserRouter>,
     document.getElementById("root") || document.createElement("div")
   );
 };

@@ -1,6 +1,3 @@
-export const API_ROOT = "https://newsapi.org/v2";
-export const IS_DEVELOPMENT = process.env.NODE_ENV === "development";
-
 export const PAGE_SIZE = 10;
 
 export const COUNTRIES = [
