@@ -24,11 +24,7 @@ const Sources = ({ match, location }) => (
     <Layout>
       <Layout.Content style={{ padding: 16, background: "white" }}>
         <Switch>
-          <Redirect
-            exact
-            path={`${match.path}`}
-            to={`${match.path}/counter`}
-          />
+          <Redirect exact path={`${match.path}`} to={`${match.path}/counter`} />
           <Route path={`${match.path}/counter`} component={CounterPage} />
           <Route path={`${match.path}/graph`} component={GraphPage} />
           <Route component={NotFoundPage} />

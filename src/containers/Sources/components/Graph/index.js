@@ -18,7 +18,7 @@ import {
   Radar
 } from "recharts";
 import { Empty } from "antd";
-import { COLORS } from 'helpers/constants';
+import { COLORS } from "helpers/constants";
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
