@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
-import { Typography } from "antd";
+import { Typography, Spin } from "antd";
 
 const formatNumber = (number, isInteger = false) =>
-  isInteger ? number.toFixed(0).toLocaleString() : parseFloat(number.toFixed(2)).toLocaleString();
+  isInteger
+    ? number.toFixed(0).toLocaleString()
+    : parseFloat(number.toFixed(2)).toLocaleString();
 
-const Counter = ({ value, title }) => {
+const Counter = ({ value, title, loading }) => {
   const changeProps = useSpring({
     from: { val: 0 },
     to: { val: value },
@@ -15,22 +17,23 @@ const Counter = ({ value, title }) => {
   });
 
   return (
-    <Circle style={changeProps}>
-      <div>
-        <Count>
-          {changeProps.val.interpolate(x => `${formatNumber(x, true)}`)}
-        </Count>
-        <Title>
-          {title}
-        </Title>
-      </div>
-    </Circle>
-  )
+    <Spin spinning={loading}>
+      <Circle style={changeProps}>
+        <div>
+          <Count>
+            {changeProps.val.interpolate(x => `${formatNumber(x, true)}`)}
+          </Count>
+          <Title>{title}</Title>
+        </div>
+      </Circle>
+    </Spin>
+  );
 };
 
 Counter.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
+  loading: PropTypes.bool
 };
 
 const Circle = styled(animated.div)`

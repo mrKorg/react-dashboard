@@ -103,3 +103,28 @@ export const ARTICLE_MODES = {
   CARD: "CARD",
   ROW: "ROW"
 };
+
+export const COLORS = [
+  "#0088FE",
+  "#00C49F",
+  "#FFBB28",
+  "#24ff15",
+  "#AF4042",
+  "#0A8042",
+  "#EC8142",
+  "#1f77b4",
+  "#ff7f0e",
+  "#2ca02c",
+  "#d62728",
+  "#9467bd",
+  "#8c564b",
+  "#e377c2",
+  "#7f7f7f",
+  "#bcbd22",
+  "#87becf",
+  "#005C4b",
+  "#e377c2",
+  "#ecef7f",
+  "#bc3d22",
+  "#87baaa"
+];

@@ -24,7 +24,7 @@ const IndexPage = () => {
             }}
           >
             <Switch>
-              <Redirect exact path="/" to="/facts" />
+              <Redirect exact path="/" to="/headlines" />
               <Route path={`/headlines`} component={Headlines} />
               <Route path={`/everything`} component={Everything} />
               <Route path={`/sources`} component={Sources} />
