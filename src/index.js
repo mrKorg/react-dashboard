@@ -5,7 +5,7 @@ import App from "containers/App";
 
 let render = Component => {
   ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <Route path="/" component={Component} />
     </BrowserRouter>,
     document.getElementById("root") || document.createElement("div")
