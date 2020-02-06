@@ -9,7 +9,10 @@ import Headlines from "containers/Headlines";
 import Everything from "containers/Everything";
 import Sources from "containers/Sources";
 
-const IndexPage = () => {
+const IndexPage = ({ match, location }) => {
+  console.log(match, location);
+  const path = match.path?.length > 1 ? match.path : '';
+  console.log(path);
   return (
     <ScrollToTop>
       <Layout style={{ minHeight: "100vh" }}>
@@ -24,10 +27,10 @@ const IndexPage = () => {
             }}
           >
             <Switch>
-              <Redirect exact path="/" to="/headlines" />
-              <Route path={`/headlines`} component={Headlines} />
-              <Route path={`/everything`} component={Everything} />
-              <Route path={`/sources`} component={Sources} />
+              <Redirect exact path={`${match.path}`} to="/headlines" />
+              <Route path={`${path}/headlines`} component={Headlines} />
+              <Route path={`${path}/everything`} component={Everything} />
+              <Route path={`${path}/sources`} component={Sources} />
               <Route component={NotFoundPage} />
             </Switch>
           </Layout.Content>
