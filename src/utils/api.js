@@ -3,7 +3,6 @@ import axios from "axios";
  * Represents a api.
  * @constructor
  * @param { url = "",  headers = "",  params = "",  body = "",  method = "['get','put','post','patch']"} payload - The request payload
- *
  */
 export default function api({
   url = "",

@@ -26,22 +26,34 @@ const InTitleDescription = props => {
           </Typography.Text>
         </List.Item>
         <List.Item>
-          <Typography.Text>
-            Prepend words or phrases that must appear with a + symbol. Eg:
-            +bitcoin
-          </Typography.Text>
+          <div>
+            <Typography.Text>
+              Prepend words or phrases that must appear with a + symbol.
+            </Typography.Text>
+            <br />
+            <Typography.Text type="secondary">Eg: -bitcoin</Typography.Text>
+          </div>
         </List.Item>
         <List.Item>
-          <Typography.Text>
-            Prepend words that must not appear with a - symbol. Eg: -bitcoin
-          </Typography.Text>
+          <div>
+            <Typography.Text>
+              Prepend words that must not appear with a - symbol.
+            </Typography.Text>
+            <br />
+            <Typography.Text type="secondary">Eg: -bitcoin</Typography.Text>
+          </div>
         </List.Item>
         <List.Item>
-          <Typography.Text>
-            Alternatively you can use the AND / OR / NOT keywords, and
-            optionally group these with parenthesis. Eg: crypto AND (ethereum OR
-            litecoin) NOT bitcoin.
-          </Typography.Text>
+          <div>
+            <Typography.Text>
+              Alternatively you can use the AND / OR / NOT keywords, and
+              optionally group these with parenthesis.
+            </Typography.Text>
+            <br />
+            <Typography.Text type="secondary">
+              Eg: crypto AND (ethereum OR litecoin) NOT bitcoin.
+            </Typography.Text>
+          </div>
         </List.Item>
       </List>
     </Card>

@@ -134,7 +134,7 @@ ArticlePreview.propTypes = {
       id: PropTypes.string,
       name: PropTypes.string
     }),
-    author: PropTypes.string,
+    author: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     title: PropTypes.string.isRequired,
     description: PropTypes.string,
     url: PropTypes.string,
