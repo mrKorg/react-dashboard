@@ -5,8 +5,13 @@ import { Form } from "antd";
 import styled from "styled-components";
 
 const StyledFormItem = styled(Form.Item)`
-  .ant-form-item-children {
-    display: block;
+  .ant-form-item-children,
+  .ant-form-item-label,
+  .ant-form-item-label {
+    .ant-typography,
+    label {
+      display: block;
+    }
   }
 `;
 
